@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+    background: #2c3e50;
+    font-family: Inter, Roboto, Oxygen, Fira Sans, Helvetica Neue, sans-serif;
+
+}
+/* хром, сафари */
+.phone::-webkit-scrollbar { width: 0 !important;}
+.phone{
+    -ms-overflow-style: none !important;
+    overflow: -moz-scrollbars-none !important;}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card {
+    display: flex;
+    flex-direction: row;
+    background-color: #282828 ;
+    padding: 30px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: #fff;
+    white-space: nowrap;
+
+}
+.leftHead {
+    align-items: flex-start;
+}
+.center {
+    align-items: center;
+    background-color: #000;
+    min-width: 145px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+.centerWho1 {
+}
+.centerWho {
+    align-items: center;
+    background-color: #d3d3d3;
+    padding: 19px;
+    border-radius: 50%;
+}
+.left {
+    padding-top: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 90.5px;
+    color: #fff;
+    font-size:14px;
+}
+.vlad {
+display: flex;
+    align-items: center;
+    font-size: 10px;
+    color:#fff;
+}
+.right {
+    align-items: center;
+    min-width: 90.5px;
+}
+.phone {
+    border: 10px solid #000000;
+    border-radius: 16px;
+    max-width: 362px;
+    min-width: 362px;
+    max-height: 640px;
+    min-height: 640px;
+    overflow:hidden; overflow-y:scroll;
+    background-color: #282828;
+}
+.who {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 64px;
+    max-height: 64px;
+    background-color:    #464544;
+}
+.head-menu {
+    display: flex;
+    justify-content: space-evenly;
+    min-height: 23px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    max-height: 23px;
+    background-color:    #464544;
+}
+.fakechat_rounded span {
+    border-radius: 16px !important;
+}
+.fakechat span {
+    display: inline-block;
+    background-color: #f6f6f6;
+    font-size: 14px !important;
+    padding: 8px 13px !important;
+    max-width: 100%;
+    word-break: break-all;
+}
