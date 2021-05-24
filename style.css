@@ -66,8 +66,8 @@ display: flex;
 .phone {
     border: 10px solid #000000;
     border-radius: 16px;
-    max-width: 362px;
-    min-width: 362px;
+    max-width: 320px;
+    min-width: 320px;
     max-height: 640px;
     min-height: 640px;
     overflow:hidden; overflow-y:scroll;
