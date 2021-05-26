@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button>Поехали</button>
+<ol id="values">
+  <li>10</li>
+  <li>20</li>
+  <li>30</li>
+</ol>
+<ol id="urls">
+  <li>https://kodaktor.ru/api/m/</li>
+  <li>https://kodaktor.ru/api/MS2/</li>
+  <li>https://kodaktor.ru/api/MS3/</li>
+</ol>
+
+
+<div class="code">
+    <pre class="javascript" style="font-family:monospace;"><span style="color: #339933;">&lt;</span>script<span style="color: #339933;">&gt;</span>
+  let i <span style="color: #339933;">=</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">const</span> values <span style="color: #339933;">=</span> <span style="color: #009900;">&#91;</span>...<span style="color: #660066;">document</span>.<span style="color: #660066;">querySelectorAll</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#values li&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#93;</span>.<span style="color: #660066;">map</span><span style="color: #009900;">&#40;</span>
+          <span style="color: #009900;">&#40;</span>item<span style="color: #009900;">&#41;</span> <span style="color: #339933;">=&gt;</span> <span style="color: #339933;">+</span>item.<span style="color: #660066;">textContent</span>
+  <span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  <span style="color: #000066; font-weight: bold;">const</span> urls <span style="color: #339933;">=</span> <span style="color: #009900;">&#91;</span>...<span style="color: #660066;">document</span>.<span style="color: #660066;">querySelectorAll</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;#urls li&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#93;</span>.<span style="color: #660066;">map</span><span style="color: #009900;">&#40;</span>
+          <span style="color: #009900;">&#40;</span>item<span style="color: #009900;">&#41;</span> <span style="color: #339933;">=&gt;</span> item.<span style="color: #660066;">textContent</span>
+  <span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+  async <span style="color: #000066; font-weight: bold;">function</span> FetchFunction<span style="color: #009900;">&#40;</span>url<span style="color: #339933;">,</span> res<span style="color: #339933;">,</span> params<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    let answer<span style="color: #339933;">;</span>
+    let response <span style="color: #339933;">=</span> await fetch<span style="color: #009900;">&#40;</span>url <span style="color: #339933;">+</span> params <span style="color: #339933;">+</span> <span style="color: #3366CC;">'/'</span> <span style="color: #339933;">+</span> res<span style="color: #009900;">&#41;</span>
+            .<span style="color: #660066;">then</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>response<span style="color: #009900;">&#41;</span> <span style="color: #339933;">=&gt;</span> response.<span style="color: #660066;">text</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
+            .<span style="color: #660066;">then</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span>data<span style="color: #009900;">&#41;</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">&#123;</span>
+              let div <span style="color: #339933;">=</span> document.<span style="color: #660066;">createElement</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;div&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+              div.<span style="color: #660066;">innerHTML</span><span style="color: #339933;">=</span> data<span style="color: #339933;">;</span>
+              answer <span style="color: #339933;">=</span> div.<span style="color: #660066;">querySelector</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;span&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">textContent</span><span style="color: #339933;">;</span>
+            <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span>
+    <span style="color: #000066; font-weight: bold;">return</span> answer
+  <span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>
+&nbsp;
+  <span style="color: #000066; font-weight: bold;">function</span> recFunc<span style="color: #009900;">&#40;</span>callback<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">const</span> rec <span style="color: #339933;">=</span> <span style="color: #009900;">&#40;</span>arr <span style="color: #339933;">=</span> <span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span> promise <span style="color: #339933;">=</span> Promise.<span style="color: #660066;">resolve</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">&#123;</span>
+      <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">!</span>arr.<span style="color: #660066;">length</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+        <span style="color: #000066; font-weight: bold;">return</span> promise<span style="color: #339933;">;</span>
+      <span style="color: #009900;">&#125;</span>
+      i<span style="color: #339933;">++;</span>
+      <span style="color: #000066; font-weight: bold;">const</span> <span style="color: #009900;">&#91;</span>url<span style="color: #339933;">,</span> ...<span style="color: #660066;">restUrls</span><span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> arr<span style="color: #339933;">;</span>
+      <span style="color: #000066; font-weight: bold;">return</span> promise.<span style="color: #660066;">then</span><span style="color: #009900;">&#40;</span>res <span style="color: #339933;">=&gt;</span> rec<span style="color: #009900;">&#40;</span>restUrls<span style="color: #339933;">,</span> FetchFunction<span style="color: #009900;">&#40;</span>url<span style="color: #339933;">,</span> res<span style="color: #339933;">,</span> values<span style="color: #009900;">&#91;</span>i <span style="color: #339933;">-</span> <span style="color: #CC0000;">1</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+    rec<span style="color: #009900;">&#40;</span>urls<span style="color: #009900;">&#41;</span>.<span style="color: #660066;">then</span><span style="color: #009900;">&#40;</span>result <span style="color: #339933;">=&gt;</span> callback<span style="color: #009900;">&#40;</span>result<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+  <span style="color: #009900;">&#125;</span>
+&nbsp;
+&nbsp;
+  document.<span style="color: #660066;">querySelector</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;button&quot;</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;click&quot;</span><span style="color: #339933;">,</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span>target<span style="color: #339933;">:</span> t<span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">=&gt;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">try</span> <span style="color: #009900;">&#123;</span>
+      t.<span style="color: #660066;">textContent</span> <span style="color: #339933;">=</span> `Загрузка`
+      recFunc<span style="color: #009900;">&#40;</span>result <span style="color: #339933;">=&gt;</span> t.<span style="color: #660066;">textContent</span> <span style="color: #339933;">=</span>`Результат<span style="color: #339933;">:</span> $<span style="color: #009900;">&#123;</span>result<span style="color: #009900;">&#125;</span>`<span style="color: #009900;">&#41;</span>
+    <span style="color: #009900;">&#125;</span> <span style="color: #000066; font-weight: bold;">catch</span> <span style="color: #009900;">&#123;</span>
+      t.<span style="color: #660066;">textContent</span> <span style="color: #339933;">=</span> `Ошибка`<span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+  <span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #339933;">&lt;/</span>script<span style="color: #339933;">&gt;</span></pre>
+</div>
+<script>
+  let i = 0;
+  const values = [...document.querySelectorAll("#values li")].map(
+          (item) => +item.textContent
+  );
+  const urls = [...document.querySelectorAll("#urls li")].map(
+          (item) => item.textContent
+  );
+
+  async function FetchFunction(url, res, params) {
+    let answer;
+    let response = await fetch(url + params + '/' + res)
+            .then((response) => response.text())
+            .then((data) => {
+              let div = document.createElement("div");
+              div.innerHTML= data;
+              answer = div.querySelector("span").textContent;
+            })
+    return answer
+  };
+
+  function recFunc(callback) {
+    const rec = (arr = [], promise = Promise.resolve()) => {
+      if (!arr.length) {
+        return promise;
+      }
+      i++;
+      const [url, ...restUrls] = arr;
+      return promise.then(res => rec(restUrls, FetchFunction(url, res, values[i - 1])));
+    }
+    rec(urls).then(result => callback(result));
+  }
+
+
+  document.querySelector("button").addEventListener("click", ({target: t}) => {
+    try {
+      t.textContent = `Загрузка`
+      recFunc(result => t.textContent =`Результат: ${result}`)
+    } catch {
+      t.textContent = `Ошибка`;
+    }
+  });
+
+</script>
+<style>
+    .code {
+        padding: 16px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+    }
+</style>
+</body>
+</html>

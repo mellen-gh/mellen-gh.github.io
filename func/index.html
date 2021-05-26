@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Волосин В.</title>
+</head>
+<body>
+<p></p>
+<script>
+    console._log = console.log;
+    console.log = function () {
+        document.querySelector('p').innerText = arguments[0];
+        console._log.apply(null, arguments);
+    }
+
+    {
+        let FnStc = {
+            sec: 0,
+            add: 0,
+            mpy: 0,
+            pwr: 0,
+        };
+        const sec = (a) => {
+            FnStc.sec += 1;
+            return 1 + a;
+        };
+        const add = (a, b) => {
+            FnStc.add += 1;
+            return b === 0 ? a : sec(add(a, b - 1));
+        };
+        const mpy = (a, b) => {
+            FnStc.mpy += 1;
+            return b === 1 ? a : add(a, mpy(a, b - 1));
+        };
+        const pwr = (a, b) => {
+            FnStc.pwr += 1;
+            if (b === 0) {
+                return 1;
+            } else if (b === 1) {
+                return a;
+            } else {
+                return mpy(a, pwr(a, b - 1));
+            }
+        };
+
+        let last = {};
+
+        loop:
+            for (let a = 1; a <= 100; a++) {
+                for (let b = 1; b <= 10; b++) {
+                    FnStc = {
+                        sec: 0,
+                        add: 0,
+                        mpy: 0,
+                        pwr: 0,
+                    };
+                    try {
+                        result = pwr(a, b);
+                        last = {
+                            a,
+                            b,
+                            result,
+                        };
+                    } catch {
+                        break loop;
+                    }
+                }
+            }
+
+
+        console.log(
+            `seс: ${FnStc.sec}, add: ${FnStc.add}, mpy: ${FnStc.mpy}.`
+            + `\n\n Последняя комбинация: a=${last.a}, b=${last.b}`
+        );
+    }
+</script>
+</body>
+</html>

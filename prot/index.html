@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="Волосин Владислав" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Цепочка прототипов</title>
+</head>
+<body>
+<div class="code">
+  <pre class="html4strict" style="font-family:monospace;"><span style="color: #00bbdd;">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">html</span> <span style="color: #000066;">lang</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;en&quot;</span>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">head</span>&gt;</span>
+  <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">meta</span> <span style="color: #000066;">charset</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;UTF-8&quot;</span> <span style="color: #66cc66;">/</span>&gt;</span>
+  <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">meta</span> <span style="color: #000066;">http-equiv</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;X-UA-Compatible&quot;</span> <span style="color: #000066;">content</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;IE=edge&quot;</span> <span style="color: #66cc66;">/</span>&gt;</span>
+  <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">meta</span> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;author&quot;</span> <span style="color: #000066;">content</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;Волосин Владислав&quot;</span> <span style="color: #66cc66;">/</span>&gt;</span>
+  <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">meta</span> <span style="color: #000066;">name</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;viewport&quot;</span> <span style="color: #000066;">content</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;width=device-width, initial-scale=1.0&quot;</span> <span style="color: #66cc66;">/</span>&gt;</span>
+  <span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">title</span>&gt;</span>Цепочка прототипов<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">title</span>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">head</span>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">body</span>&gt;</span>
+&nbsp;
+<span style="color: #009900;">&lt;<span style="color: #000000; font-weight: bold;">script</span> <span style="color: #000066;">type</span><span style="color: #66cc66;">=</span><span style="color: #ff0000;">&quot;module&quot;</span>&gt;</span>
+  import { o3 } from &quot;https://cdn.skypack.dev/goss_proto@1.0.0&quot;;
+&nbsp;
+  function getPrototypeChain(obj) {
+    let prot = Object.getPrototypeOf(obj);
+    let name = obj.name;
+    let cn = 0;
+&nbsp;
+    while (prot) {
+      name +=
+              `\n` +
+              `       `.repeat(cn) +
+              `|` +
+              `\n` +
+              `       `.repeat(cn) +
+              `--&gt; ` +
+              `${prot.name}`;
+      prot = Object.getPrototypeOf(prot);
+      cn += 1;
+    }
+    return name;
+  }
+&nbsp;
+  alert(&quot;Chain of prototypes:\n&quot; + getPrototypeChain(o3));
+  console.log(o3);
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">script</span>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">body</span>&gt;</span>
+<span style="color: #009900;">&lt;<span style="color: #66cc66;">/</span><span style="color: #000000; font-weight: bold;">html</span>&gt;</span></pre>
+</div>
+<script type="module">
+  import { o3 } from "https://cdn.skypack.dev/goss_proto@1.0.0";
+
+  function getPrototypeChain(obj) {
+    let prot = Object.getPrototypeOf(obj);
+    let name = obj.name;
+    let cn = 0;
+
+    while (prot) {
+      name +=
+              `\n` +
+              `       `.repeat(cn) +
+              `|` +
+              `\n` +
+              `       `.repeat(cn) +
+              `--> ` +
+              `${prot.name}`;
+      prot = Object.getPrototypeOf(prot);
+      cn += 1;
+    }
+    return name;
+  }
+
+  alert("Chain of prototypes:\n" + getPrototypeChain(o3));
+  console.log(o3);
+</script>
+</body>
+</html>
