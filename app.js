@@ -33,7 +33,7 @@ let mychat = new FakeChat('#mychat', {
             timer: 2400,
         },
         {
-            text: `MathML<br/>` +
+            text: `MathML:<br/>` +
                     `<a href="https://mellen-gh.github.io/XML/sigma.xml" target="_blank">Перейти -></a>`,
             timer: 3600,
         },
