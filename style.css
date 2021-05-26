@@ -17,17 +17,6 @@ body {
 }
 .example{
 
-    width: 70px;
-
-    height: 70px;
-
-    display: inline-block;
-
-    background: #1607ff;
-
-    -webkit-mask-image: url(/bat1.svg);
-
-    mask-image:url(/bat1.svg);
 
 }
 a {
