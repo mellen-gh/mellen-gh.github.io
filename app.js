@@ -33,51 +33,30 @@ let mychat = new FakeChat('#mychat', {
             timer: 2400,
         },
         {
-            text: `MathMl from XML:<br/>` +
+            text: `MathML<br/>` +
                     `<a href="https://mellen-gh.github.io/XML/sigma.xml" target="_blank">Перейти -></a>`,
             timer: 3600,
         },
         {
-            text: 'Задания по дисциплине<br/> ',
-            timer: 6800,
-        }, {
-            text: 'Задания по дисциплине<br/> «Проектирование и анализ языков<',
-            timer: 8000,
+            text: `SVG:<br/>` +
+                `<a href="https://mellen-gh.github.io/XML/svg.xml" target="_blank">Перейти -></a>`,
+            timer: 4600,
         },
         {
-            text:  `Задания по дисциплине<br/> «Проектирование и анализ языков`,
-            timer: 9000,
+            text: `Fetch:<br/>` +
+                `<a href="https://mellen-gh.github.io/fetch/index.xml" target="_blank">Перейти -></a>`,
+            timer: 5600,
         },
-        {
-            text:  `Задания по дисциплине`,
-            timer: 11000,
+         {
+            text: `Func **:<br/>` +
+                `<a href="https://mellen-gh.github.io/func/index.xml" target="_blank">Перейти -></a>`,
+            timer: 6600,
         },
-        {
-            text:  `Задания по дисциплине веб-решений»`,
-            timer: 13000,
-        },{
-            text:  `Задания по дисциплине языков веб-решений»`,
-            timer: 15000,
+          {
+            text: `Chain of prototype: <br/>` +
+                `<a href="https://mellen-gh.github.io/prot/index.xml" target="_blank">Перейти -></a>`,
+            timer: 7600,
         },
-        {
-            text:  `Задания по дисциплине<br/> «Проектирование и анализ языков<br> веб-решений»`,
-            timer: 17000,
-        },{
-            text:  `Задания по дисциплине<br/> «Проектирование и анализ языков<br> веб-решений»`,
-            timer: 18000,
-        },
-        {
-            text:  `Задания по дисциплине<br/> «Проектирование и анализ языков<br> веб-решений»`,
-            timer: 20000,
-        },
-        {
-            text:  `Задания по дисциплине<br/> «Проектирование и анализ языков<br> веб-решений»`,
-            timer: 22000,
-        },
-
-
-
-
     ],
     visible: false,
     adding: 'beforeend',
