@@ -25,15 +25,16 @@ let mychat = new FakeChat('#mychat', {
             timer: 500,
         },
         {
-            text: 'Преподаватель: Государев Илья Борисович/>',
+            text: `Преподаватель:<br/> Государев Илья Борисович`,
             timer: 1200,
         },
         {
-            text: 'Задания по дисциплине<br/>',
+            text: `Задания:<br/>`,
             timer: 2400,
         },
         {
-            text: 'Задания по дисциплине<br/> «Проектирование и анализ языков<br> веб-решений»',
+            text: `MathMl from XML:<br/>` +
+                    `<a href="https://mellen-gh.github.io/XML/sigma.xml" target="_blank">Перейти -></a>`,
             timer: 3600,
         },
         {
