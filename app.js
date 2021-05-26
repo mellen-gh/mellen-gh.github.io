@@ -44,17 +44,17 @@ let mychat = new FakeChat('#mychat', {
         },
         {
             text: `Fetch:<br/>` +
-                `<a href="https://mellen-gh.github.io/fetch/index.xml" target="_blank">Перейти -></a>`,
+                `<a href="https://mellen-gh.github.io/fetch/index.html" target="_blank">Перейти -></a>`,
             timer: 5600,
         },
          {
             text: `Func **:<br/>` +
-                `<a href="https://mellen-gh.github.io/func/index.xml" target="_blank">Перейти -></a>`,
+                `<a href="https://mellen-gh.github.io/func/index.html" target="_blank">Перейти -></a>`,
             timer: 6600,
         },
           {
             text: `Chain of prototype: <br/>` +
-                `<a href="https://mellen-gh.github.io/prot/index.xml" target="_blank">Перейти -></a>`,
+                `<a href="https://mellen-gh.github.io/prot/index.html" target="_blank">Перейти -></a>`,
             timer: 7600,
         },
     ],
